@@ -1,0 +1,26 @@
+name: Verify Lean formalization
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install Lean and build pinned dependencies
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
+        with:
+          auto-config: false
+          build: true
+          use-github-cache: false
+      - name: Check release sources and transitive axioms
+        run: ./scripts/verify.sh
+      - name: Comparator on trusted checkout (without process sandboxing)
+        run: ./scripts/run-comparator.sh --development
