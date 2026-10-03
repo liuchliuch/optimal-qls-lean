@@ -1,0 +1,16 @@
+Simultaneously Query-Optimal Quantum Linear-System Algorithm — Lean formalization
+
+The accompanying paper is by Minbo Gao, Zhengfeng Ji, and Chenghua Liu.
+
+vendor/first-paper/ contains eleven inherited QuantumChannelStein modules.
+Their source hashes and original local provenance are recorded in
+vendor/first-paper/PROVENANCE.json.
+
+The SVD proof in QuantumChannelStein/TraceNorm.lean is adapted from Physlib:
+QuantumInfo/ForMathlib/MatrixNorm/TraceNorm.lean.
+Copyright (c) 2025 Alex Meiburg. Released under Apache-2.0.
+The original attribution remains in the source, and the license is preserved
+in vendor/first-paper/docs/Physlib-Apache-2.0.txt.
+
+Lean, mathlib, and other Lake packages retain their respective licenses and
+are fetched separately. They are not included in this source distribution.

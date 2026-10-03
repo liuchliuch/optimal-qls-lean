@@ -1,0 +1,738 @@
+[
+  {
+    "number": "1.1",
+    "kind": "theorem",
+    "paper_labels": [
+      "thm:upper-summary"
+    ],
+    "source_lines": [
+      233,
+      245
+    ],
+    "inputs": "Exact encoding; κ bound; supplied constant-factor solution-norm estimate; 0<ε<1/2",
+    "outputs": "Simultaneous upper oracle/gate bounds",
+    "references": [
+      "OptimalQLS/Reduction/Theorem57.lean:theorem57"
+    ],
+    "review_note": "Informal summary of Theorem 5.7; read with the promises of Problem 2.2."
+  },
+  {
+    "number": "1.2",
+    "kind": "theorem",
+    "paper_labels": [
+      "thm:lower-summary"
+    ],
+    "source_lines": [
+      251,
+      262
+    ],
+    "inputs": "Large κ; small ε; every norm scale; any universally correct solver",
+    "outputs": "One Hermitian input forces BOTH lower bounds",
+    "references": [
+      "OptimalQLS/LowerBounds/Physical/Theorem61.lean:theorem61"
+    ],
+    "review_note": "Informal summary of Theorem 6.1; the detailed theorem uses heralded success at least 2/3."
+  },
+  {
+    "number": "2.1",
+    "kind": "definition",
+    "paper_labels": [
+      "def:input",
+      "eq:block"
+    ],
+    "source_lines": [
+      638,
+      644
+    ],
+    "inputs": "Unitary, α>0, a signal qubits, δA≥0",
+    "outputs": "Definition of operator-norm block-encoding",
+    "references": [
+      "OptimalQLS/BlockEncoding.lean:IsBlockEncoding",
+      "OptimalQLS/PhysicalPadding/Input.lean:PhysicalBaseQLSPromise",
+      "OptimalQLS/PhysicalRobustness/Input.lean:PhysicalApproximateQLSPromise"
+    ],
+    "review_note": "Positive normalization, nonnegative error, and the Euclidean induced operator norm; physical matrices use full zero padding."
+  },
+  {
+    "number": "2.2",
+    "kind": "problem",
+    "paper_labels": [
+      "prob:qlsa"
+    ],
+    "source_lines": [
+      647,
+      663
+    ],
+    "inputs": "Invertible A; unit b; exact UA; Ub prepares b; κ≥2; α‖A⁻¹‖≤κ; s/2≤ŝ≤2s; ε∈(0,1/2)",
+    "outputs": "Heralded normalized solution, success≥2/3",
+    "references": [
+      "OptimalQLS/Problem.lean:QLSParameters",
+      "OptimalQLS/Problem.lean:ExactQLSPromise",
+      "OptimalQLS/PhysicalPadding/Input.lean:PhysicalExactQLSPromise",
+      "OptimalQLS/Reduction/Theorem57.lean:UniformExactGuarantee"
+    ],
+    "review_note": "The complete supplied oracles are quantified. Only the promised signal block and preparation column are constrained."
+  },
+  {
+    "number": "2.3",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:hermitian-reduction",
+      "sec:dilation",
+      "eq:hermitian-dilation"
+    ],
+    "source_lines": [
+      666,
+      719
+    ],
+    "inputs": "General input with relaxed 3s/8≤ŝ≤5s/2",
+    "outputs": "Normalized Hermitian dilation, solution extraction, constant resource overhead",
+    "references": [
+      "OptimalQLS/Reduction/GenericSolver/Complete.lean:proposition23",
+      "OptimalQLS/Reduction/GenericSolver/Complete.lean:normalized_input_conditions",
+      "OptimalQLS/Reduction/GenericSolver/FreshCopiesComplete.lean:proposition23_uniform_reduction",
+      "OptimalQLS/Reduction/GenericSolver/FreshCopiesComplete.lean:reducedProcess_terminal_resources",
+      "OptimalQLS/Reduction/GenericSolver/PhysicalTarget.lean:closeDilationSolution_iff"
+    ],
+    "review_note": "An arbitrary supplied finite solver is transformed into three fresh runs. Branch-dependent successful states, head measurement, partial traces, and literal resource costs are included."
+  },
+  {
+    "number": "2.4",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:qsvt"
+    ],
+    "source_lines": [
+      797,
+      799
+    ],
+    "inputs": "Hermitian encoded A; real even bounded polynomial p",
+    "outputs": "Concrete exact p(A) encoding with degree-linear oracle/gate counts",
+    "references": [
+      "OptimalQLS/PolynomialTransform/SingleFlagEncoding.lean:lemma24_single_flag_encoding",
+      "OptimalQLS/PolynomialTransform/BoundedQSP.lean:bounded_even_completion",
+      "OptimalQLS/PolynomialTransform/RealCompletion.lean:lemma6_real_completion"
+    ],
+    "review_note": "Bounded even polynomials are completed and factored into an actual oracle circuit. Queries include controlled and adjoint calls. Zero-padded inputs use the transport lemmas."
+  },
+  {
+    "number": "2.5",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:inverse-square"
+    ],
+    "source_lines": [
+      801,
+      811
+    ],
+    "inputs": "δ∈(0,1/2], η∈(0,1/2)",
+    "outputs": "Even globally bounded δ²/(2x²) approximant of degree O(δ⁻¹log(1/η))",
+    "references": [
+      "OptimalQLS/InverseSquare/Optimal.lean:lemma25_inverse_square"
+    ],
+    "review_note": "Alternative binomial/Chebyshev construction: global bound one, evenness, error eta and degree at most 210000 delta^-1 log(1/eta)."
+  },
+  {
+    "number": "2.6",
+    "kind": "definition",
+    "paper_labels": [
+      "def:transducer",
+      "eq:transducer-definition"
+    ],
+    "source_lines": [
+      816,
+      828
+    ],
+    "inputs": "Unitary S on public⊕private Hilbert space",
+    "outputs": "Exact catalytic transduction relation and public action",
+    "references": [
+      "OptimalQLS/Transduction/Basic.lean:HilbertSum",
+      "OptimalQLS/Transduction/Core.lean:publicAction",
+      "OptimalQLS/Transduction/Matrix.lean:public_action_exists",
+      "OptimalQLS/Transduction/MatrixProperties.lean:matrix_output_unique",
+      "OptimalQLS/Transduction/MatrixProperties.lean:matrixCatalyst_minimum_norm_unique"
+    ],
+    "review_note": "Finite-dimensional unitary public action, output uniqueness, and a unique minimum-norm catalyst are proved."
+  },
+  {
+    "number": "2.7",
+    "kind": "definition",
+    "paper_labels": [
+      "def:canonical",
+      "eq:canonical-definition"
+    ],
+    "source_lines": [
+      845,
+      855
+    ],
+    "inputs": "Public and three private sectors; two input unitaries; oracle-independent work",
+    "outputs": "Canonical transducer S=S°(I⊕I₀⊕O₁⊕O₂)",
+    "references": [
+      "OptimalQLS/TransducerCompiler/Reservoir.lean:bundle",
+      "OptimalQLS/TransducerCompiler/BJYTheorem.lean:bjy71_complete",
+      "OptimalQLS/TransducerCompiler/Physical/Basic.lean:ControlledWork"
+    ],
+    "review_note": "Public and three private sectors share a workspace; work circuits are supplied separately from oracle calls."
+  },
+  {
+    "number": "2.8",
+    "kind": "lemma",
+    "paper_labels": [
+      "thm:bjy",
+      "eq:fixed-transducer-error"
+    ],
+    "source_lines": [
+      875,
+      903
+    ],
+    "inputs": "Canonical S; chosen catalysts; known W,L₁,L₂; fixed error",
+    "outputs": "Witness-independent finite unitary, separate O(Li) query costs and O(W(g+1)) extra gates",
+    "references": [
+      "OptimalQLS/TransducerCompiler/Physical/Complete.lean:lemma28_physical",
+      "OptimalQLS/TransducerCompiler/Physical/Basic.lean:ControlledWork",
+      "OptimalQLS/TransducerCompiler/Physical/Assembly.lean:compile_intertwines",
+      "OptimalQLS/TransducerCompiler/Physical/QueryLocality.lean:queryPlacement",
+      "OptimalQLS/TransducerCompiler/Physical/Resources.lean:accuracy_qubits",
+      "OptimalQLS/TransducerCompiler/Physical/Input.lean:publicIndex_coordinates"
+    ],
+    "review_note": "The supplied controlled-work circuit is an input premise, as in the paper. One compiler is chosen before the oracles and catalyst vectors. Separate budgets and logarithmic auxiliary width are proved."
+  },
+  {
+    "number": "4.1",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:coarse",
+      "eq:coarse-guarantee"
+    ],
+    "source_lines": [
+      1085,
+      1105
+    ],
+    "inputs": "Normalized Hermitian input; relaxed solution-norm estimate",
+    "outputs": "Prepared unit vector with exact βu+h decomposition, β∈[1/32,1], Ph=0 and separate costs",
+    "references": [
+      "OptimalQLS/PaperStatements/Proposition41.lean:proposition41",
+      "OptimalQLS/PhysicalPadding/Preparation.lean:physical_original_preparation_coarse",
+      "OptimalQLS/Preparation/CompilerAttachment/Complete.lean:physical_preparation_complete",
+      "OptimalQLS/PhysicalPadding/Graph.lean:graph_kernel_projection",
+      "OptimalQLS/PhysicalPadding/Graph.lean:graph_pseudoInverse"
+    ],
+    "review_note": "One prepared state has a real coefficient in [1/32,1] and an exactly annihilated residual. Compiler attachment and padding transport refer to that same state."
+  },
+  {
+    "number": "4.2",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:geometry",
+      "eq:graph-identities",
+      "eq:gamma",
+      "eq:pseudoinverse-w"
+    ],
+    "source_lines": [
+      1110,
+      1133
+    ],
+    "inputs": "Hermitian invertible A, ‖A‖≤1, ‖A⁻¹‖≤κ; unit b; actual three-block H",
+    "outputs": "Exact kernel projection/MP formulas, γ bounds, MP norm and spectral gap",
+    "references": [
+      "OptimalQLS/Geometry/Lemma42.lean:lemma42_exact_formulas",
+      "OptimalQLS/Geometry/Lemma42.lean:lemma42_projection_bounds",
+      "OptimalQLS/Geometry/Lemma42.lean:lemma42_pseudoinverse_bound",
+      "OptimalQLS/Geometry/Lemma42.lean:lemma42_pseudoinverse_normalized_kernel",
+      "OptimalQLS/Geometry/Lemma42.lean:lemma42_spectral_gap",
+      "OptimalQLS/Geometry/MoorePenrose.lean:lemma42_pseudoinverse_unique",
+      "OptimalQLS/GraphEncoding/Geometry.lean"
+    ],
+    "review_note": "The projection, Moore-Penrose equations and uniqueness, norm estimates and two-sided nonzero spectral bounds are separate endpoints."
+  },
+  {
+    "number": "4.3",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:graph-encoding",
+      "eq:graph-encoding"
+    ],
+    "source_lines": [
+      1248,
+      1256
+    ],
+    "inputs": "Exact input encoding UA and κ",
+    "outputs": "Concrete Hermitian unitary encoding H/(1+κ⁻¹), constant UA overhead",
+    "references": [
+      "OptimalQLS/PaperStatements/Proposition43.lean:proposition43",
+      "OptimalQLS/GraphEncoding/SingleFlagTheorem.lean:controlled_graph_single_flag",
+      "OptimalQLS/PhysicalPadding/Graph.lean"
+    ],
+    "review_note": "The same Hermitian graph oracle has normalization 1+kappa^-1 and constant-cost ordinary, controlled and adjoint implementations."
+  },
+  {
+    "number": "4.4",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:kernel-transducer",
+      "eq:local-weight"
+    ],
+    "source_lines": [
+      1312,
+      1328
+    ],
+    "inputs": "Hermitian unitary UH; τ>0; actual P,H⁺",
+    "outputs": "Explicit kernel-reflection transducer and exact two-sector catalyst cost",
+    "references": [
+      "OptimalQLS/KernelReflectionPhysical/Theorem.lean:proposition44",
+      "OptimalQLS/KernelReflectionPhysical/Theorem.lean:physical_restoration",
+      "OptimalQLS/KernelReflectionPhysical/Theorem.lean:canonical_catalyst_cost",
+      "OptimalQLS/KernelReflectionPhysical/QueryPlacement.lean:originalOraclePlacement",
+      "OptimalQLS/KernelReflectionPhysical/Circuit.lean:sourceQuery_state"
+    ],
+    "review_note": "The original Hermitian block encoding yields the explicit two-sector catalyst and its exact squared norm. The controlled work is synthesized locally."
+  },
+  {
+    "number": "4.5",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:input-transducer"
+    ],
+    "source_lines": [
+      1436,
+      1446
+    ],
+    "inputs": "Input vector e prepared by Ub",
+    "outputs": "Explicit reflection transducer, catalyst norm, two vector queries per reflection",
+    "references": [
+      "OptimalQLS/PaperStatements/Proposition45.lean:proposition45",
+      "OptimalQLS/Preparation/CompilerAttachment/SourceSemantics.lean:compilerReflectionCall_intertwines"
+    ],
+    "review_note": "The literal prepared-column reflection, two vector calls, catalyst restoration, and real local gate synthesis are linked."
+  },
+  {
+    "number": "4.6",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:transducer",
+      "eq:transducer-def",
+      "eq:transducer-identity"
+    ],
+    "source_lines": [
+      1469,
+      1480
+    ],
+    "inputs": "Any finite complex unitary U; real \\|r\\|<1",
+    "outputs": "Explicit B_r(I⊕U), unitary Möbius action, exact catalyst for every vector",
+    "references": [
+      "OptimalQLS/FractionalTransducer.lean:proposition46"
+    ],
+    "review_note": "The actual inverse-defined Mobius transform is unitary and satisfies the catalytic identity for every input vector."
+  },
+  {
+    "number": "4.7",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:transducer-geometry",
+      "eq:mixing-parameter"
+    ],
+    "source_lines": [
+      1505,
+      1520
+    ],
+    "inputs": "Orthogonal P, unit e, γ bounds, κ≥2, 1≤s≤κ and relaxed estimate",
+    "outputs": "Real overlap>1/30, invariant catalyst plane, norm²≤κ/(8ŝ)",
+    "references": [
+      "OptimalQLS/Lemma47.lean:lemma47",
+      "OptimalQLS/Preparation/MatrixGuarantees.lean:ideal_matrix_guarantees"
+    ],
+    "review_note": "The geometric premises yield real overlap greater than 1/30, the real invariant plane and squared catalyst norm at most kappa/(8 estimate)."
+  },
+  {
+    "number": "4.8",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:preparation-transducer",
+      "eq:preparation-transduction",
+      "eq:transducer-cost"
+    ],
+    "source_lines": [
+      1663,
+      1680
+    ],
+    "inputs": "Explicit five-sector composed preparation transducer",
+    "outputs": "Exact catalytic identity; LH<8κ, Le≤κ/(8ŝ), W<9κ; work-gate count",
+    "references": [
+      "OptimalQLS/PaperStatements/Proposition48.lean:proposition48",
+      "OptimalQLS/Preparation/CanonicalBounds.lean:canonical_energy_bounds",
+      "OptimalQLS/Preparation/CompilerAttachment/WorkGates.lean:workMacro_intertwines",
+      "OptimalQLS/PhysicalPadding/Graph.lean:physical_graphInput_promises",
+      "OptimalQLS/Preparation/Canonical.lean:canonical_relation",
+      "OptimalQLS/Preparation/CompilerAttachment/WorkGates.lean:positiveWorkMacro_intertwines"
+    ],
+    "review_note": "The original matrix promises imply the same canonical transduction relation and all three energy bounds; no catalyst-cost certificate is assumed."
+  },
+  {
+    "number": "4.9",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:alignment",
+      "eq:exact-alignment"
+    ],
+    "source_lines": [
+      1756,
+      1783
+    ],
+    "inputs": "Actual real finite compiler applied to explicit preparation transducer",
+    "outputs": "Exact real kernel alignment after all-zero ancilla projection",
+    "references": [
+      "OptimalQLS/Alignment/FiniteAlignment.lean:lemma49_preparationCompiler",
+      "OptimalQLS/Alignment/CompilerInvariant.lean",
+      "OptimalQLS/Alignment/EncodedInvariant.lean",
+      "OptimalQLS/Preparation/CompilerAttachment/Complete.lean:physical_preparation_complete"
+    ],
+    "review_note": "Real Krylov invariance gives an exact real scalar after zero-auxiliary projection, not merely approximate alignment."
+  },
+  {
+    "number": "5.1",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:filter-polynomial",
+      "eq:chebyshev-filter"
+    ],
+    "source_lines": [
+      1921,
+      1937
+    ],
+    "inputs": "δ∈(0,1/√12], η∈(0,1/2); explicit Chebyshev ratio",
+    "outputs": "Even degree bound, R(0)=1, global \\|R\\|≤1 and tail \\|R\\|≤η",
+    "references": [
+      "OptimalQLS/PolynomialTransform/ChebyshevFilter.lean:lemma51_kernel_filter"
+    ],
+    "review_note": "The specified Chebyshev ratio has degree exactly twice the stated ceiling, value one at zero, global bound one and the required tail."
+  },
+  {
+    "number": "5.2",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:filter",
+      "eq:filter-register-block",
+      "eq:filter-operator-bound"
+    ],
+    "source_lines": [
+      1939,
+      1958
+    ],
+    "inputs": "Auxiliary encoding UH, spectral gap, chosen η",
+    "outputs": "Concrete matrix-only kernel-filter circuit and operator-norm error≤η",
+    "references": [
+      "OptimalQLS/PolynomialTransform/SingleFlagPaperTheorems.lean:lemma52_kernel_filter_single_flag",
+      "OptimalQLS/PolynomialTransform/GraphPaperParameters.lean"
+    ],
+    "review_note": "The gap uses the paper minimum. The same emitted circuit has the polynomial block, projection error, zero vector calls and local gate bounds."
+  },
+  {
+    "number": "5.3",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:correction-identity",
+      "eq:correction-identity"
+    ],
+    "source_lines": [
+      1979,
+      1987
+    ],
+    "inputs": "κ≥1; Hermitian A; spec(A)⊆[-1,-1/κ]∪[1/κ,1]",
+    "outputs": "I≤I+κ⁻²A⁻²≤2I and exact correction identity",
+    "references": [
+      "OptimalQLS/Geometry/Proposition53.lean:PaperSpectralPromise",
+      "OptimalQLS/Geometry/Proposition53.lean:proposition53"
+    ],
+    "review_note": "The real interval-union spectral promise implies invertibility, the correction identity and the quadratic-form version of the operator inequalities."
+  },
+  {
+    "number": "5.4",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:correction-polynomial",
+      "eq:correction-poly"
+    ],
+    "source_lines": [
+      2003,
+      2014
+    ],
+    "inputs": "κ≥2; η∈(0,1/2); actual Lemma2.5 polynomial",
+    "outputs": "Even correction polynomial, global bound3/4, tail errorη/2",
+    "references": [
+      "OptimalQLS/PolynomialTransform/CorrectionPolynomial.lean:lemma54_from_inverse_square",
+      "OptimalQLS/PolynomialTransform/RefinementTheorems.lean:lemma54_correction_polynomial",
+      "OptimalQLS/InverseSquare/Optimal.lean:lemma25_inverse_square"
+    ],
+    "review_note": "The correction polynomial is formed from the proved inverse-square polynomial, with bound 3/4 and error eta/2."
+  },
+  {
+    "number": "5.5",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:correction",
+      "eq:correction-register-block",
+      "eq:correction-bound"
+    ],
+    "source_lines": [
+      2016,
+      2034
+    ],
+    "inputs": "Exact encoding UA and correction polynomial",
+    "outputs": "Concrete correction unitary; operator errorη/2; no vector queries",
+    "references": [
+      "OptimalQLS/PolynomialTransform/SingleFlagPaperTheorems.lean:lemma55_correction_single_flag"
+    ],
+    "review_note": "One matrix-only circuit implements the correction polynomial and satisfies the operator error and resource bounds."
+  },
+  {
+    "number": "5.6",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:refinement"
+    ],
+    "source_lines": [
+      2051,
+      2061
+    ],
+    "inputs": "Actual prepared unit Ψ with exact βu+h; ε∈(0,1/2)",
+    "outputs": "Joint accepted vector, probability>1/65536, error≤ε/2, matrix-only resources",
+    "references": [
+      "OptimalQLS/PaperStatements/RefinementMeasurement.lean:proposition56_physical",
+      "OptimalQLS/PaperStatements/Proposition56.lean:proposition56",
+      "OptimalQLS/PaperStatements/Proposition56.lean:RefinementGuarantee",
+      "OptimalQLS/PhysicalPadding/Refinement.lean",
+      "OptimalQLS/PhysicalPadding/Refinement.lean:physical_refinement_component_guarantee",
+      "OptimalQLS/PhysicalPadding/Refinement.lean:refinementAccepted_isometry",
+      "OptimalQLS/Refinement/JointCircuit.lean:joint_acceptance",
+      "OptimalQLS/PhysicalPadding/Polynomial.lean:physical_correction_single_flag",
+      "OptimalQLS/PhysicalPadding/Filter.lean:physical_kernel_filter_single_flag"
+    ],
+    "review_note": "The same circuit works for every admissible prepared state, at eta=epsilon/1024. Its literal accepting measurement gives error epsilon/2 and mass greater than 1/65536."
+  },
+  {
+    "number": "5.7",
+    "kind": "theorem",
+    "paper_labels": [
+      "thm:upper"
+    ],
+    "source_lines": [
+      2143,
+      2164
+    ],
+    "inputs": "Full Problem2.2 including supplied estimate; also relaxed estimate",
+    "outputs": "ONE concrete algorithm with both optimal query bounds plus gate/space counts",
+    "references": [
+      "OptimalQLS/Reduction/Theorem57.lean:theorem57",
+      "OptimalQLS/Reduction/Theorem57.lean:theorem57_relaxed"
+    ],
+    "review_note": "The witness precedes hidden input and complete oracles. Exact and relaxed estimates, arbitrary positive dimensions, separate queries, local gates and space bounds are all exported."
+  },
+  {
+    "number": "6.1",
+    "kind": "theorem",
+    "paper_labels": [
+      "thm:lower"
+    ],
+    "source_lines": [
+      2211,
+      2241
+    ],
+    "inputs": "Universal correct solver; κ≥κ₀;0<ε≤ε₀; EVERY 1≤ŝ≤κ",
+    "outputs": "ONE existential real Hermitian instance of dimensionO(κlog1/ε) forcing both costs",
+    "references": [
+      "OptimalQLS/LowerBounds/Physical/Theorem61.lean:theorem61",
+      "OptimalQLS/LowerBounds/Physical/Theorem61.lean:SameInstancePhysicalQLSLowerProperty",
+      "OptimalQLS/LowerBounds/Physical/LowerBounds.lean:QuantumProgram.CorrectHermitianPhysicalQLS"
+    ],
+    "review_note": "For kappa>=8 and epsilon<=exp(-16), one real Hermitian instance forces both bounds for any universally correct unbounded program. Finite prefixes use positive Born reachability."
+  },
+  {
+    "number": "6.2",
+    "kind": "definition",
+    "paper_labels": [
+      "def:parity-history-family",
+      "eq:lower-history-parameters",
+      "eq:lower-history-transitions",
+      "eq:lower-history-matrix"
+    ],
+    "source_lines": [
+      2252,
+      2286
+    ],
+    "inputs": "κ≥4,m≥1,z∈{0,1}^m; explicit padded forward/reverse parity computation",
+    "outputs": "Actual cyclic history permutation Bz, Hz, common source",
+    "references": [
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean",
+      "OptimalQLS/LowerBounds/HistoryGates.lean:parityHistoryGates",
+      "OptimalQLS/LowerBounds/HistoryPowerBounds.lean:historyLambda",
+      "OptimalQLS/LowerBounds/HistoryPowerBounds.lean:historyPadding",
+      "OptimalQLS/LowerBounds/HistoryInverse.lean:historyMatrix"
+    ],
+    "review_note": "The cyclic parity-history family is an explicit finite permutation construction."
+  },
+  {
+    "number": "6.3",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:history-profile",
+      "eq:lower-history-tail"
+    ],
+    "source_lines": [
+      2288,
+      2312
+    ],
+    "inputs": "Concrete cyclic history family",
+    "outputs": "Exact operator norms, z-independent Y∈[κ/2,κ], parity-tail mass≥λ^(2m)/256",
+    "references": [
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean:parity_history_operator_norms",
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean:parity_history_solution_norm_bounds",
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean:parity_history_solution_norm_independent",
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean:parity_history_tail_probability",
+      "OptimalQLS/LowerBounds/ParityHistoryFamily.lean:parity_history_tail_work_bit"
+    ],
+    "review_note": "Exact matrix and inverse norms, common solution norm, tail probability and deterministic parity support are linked to the explicit history family."
+  },
+  {
+    "number": "6.4",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:history-family",
+      "eq:lower-family-signal"
+    ],
+    "source_lines": [
+      2372,
+      2403
+    ],
+    "inputs": "Every κ≥4, every norm scale, every history length",
+    "outputs": "Actual Hermitian norm-controlled family with fixed Ub,e and parity observable",
+    "references": [
+      "OptimalQLS/LowerBounds/Physical/Proposition64.lean:proposition64",
+      "OptimalQLS/LowerBounds/Physical/OrdinaryBitSimulation.lean:proposition64_ordinary_query_simulation",
+      "OptimalQLS/LowerBounds/Physical/HardFamily.lean"
+    ],
+    "review_note": "The full preparation oracle is input-independent. The family has exact norms, the common eigenvector and observable; each allowed matrix query has an eight-ordinary-bit-query simulation."
+  },
+  {
+    "number": "6.5",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:pointwise-vector"
+    ],
+    "source_lines": [
+      2485,
+      2496
+    ],
+    "inputs": "ANY original family member and universal solver",
+    "outputs": "Pointwise Ω(κ/ŝ) vector lower bound on that original member",
+    "references": [
+      "OptimalQLS/PaperStatements/Lemma65.lean:lemma65",
+      "OptimalQLS/LowerBounds/Physical/LowerBounds.lean:QuantumProgram.physical_pointwise_vector_lower_bound"
+    ],
+    "review_note": "Universal correctness is specialized to every original family member and its companion. The vector lower bound is on that original input."
+  },
+  {
+    "number": "6.6",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:parity-lower"
+    ],
+    "source_lines": [
+      2606,
+      2612
+    ],
+    "inputs": "Quantum bit-query algorithm correct on every z with probability>1/2",
+    "outputs": "Some genuinely reachable run has ≥m/2 queries",
+    "references": [
+      "OptimalQLS/LowerBounds/ParityProgramTheorem.lean:QuantumProgram.lemma66",
+      "OptimalQLS/LowerBounds/ParityProgramTheorem.lean:QuantumProgram.ComputesParity",
+      "OptimalQLS/LowerBounds/ParityProgramTheorem.lean:standardBitPolynomial_eval",
+      "OptimalQLS/LowerBounds/ParityProgramTheorem.lean:FiniteOracleProgram.completedBitProbability_eq_sum"
+    ],
+    "review_note": "Actual parity success greater than 1/2 yields a positive-Born finite prefix with at least m/2 queries. No fixed halting time or uniform success gap is assumed."
+  },
+  {
+    "number": "7.1",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:backward",
+      "eq:inverse-perturb",
+      "eq:norm-perturb",
+      "eq:state-perturb"
+    ],
+    "source_lines": [
+      2696,
+      2706
+    ],
+    "inputs": "Invertible A; nonzero b;0≤ρ<1; ‖A⁻¹‖‖B−A‖≤ρ",
+    "outputs": "B invertible, inverse bound, both solution-norm bounds, normalized error≤2ρ",
+    "references": [
+      "OptimalQLS/Perturbation/MatrixLemma.lean:lemma71_matrix",
+      "OptimalQLS/Perturbation/Lemma71.lean:lemma71"
+    ],
+    "review_note": "The original relative perturbation controls both inverse norms and normalized-vector error by 2 rho, without an additional (1-rho)^-1 factor in the state error."
+  },
+  {
+    "number": "7.2",
+    "kind": "theorem",
+    "paper_labels": [
+      "thm:robust",
+      "eq:robust-error"
+    ],
+    "source_lines": [
+      2736,
+      2760
+    ],
+    "inputs": "Fixed approximate encoding; original factor-two estimate; κδA/α≤1/4",
+    "outputs": "Same query/gate costs, total error≤ε+2κδA/α",
+    "references": [
+      "OptimalQLS/PhysicalRobustness/Input.lean:PhysicalApproximateQLSPromise",
+      "OptimalQLS/PhysicalRobustness/GeneralProgram/Promise.lean:theorem72"
+    ],
+    "review_note": "The independent original norm bound and original factor-two estimate are retained. The witness precedes delta and all inputs; error is epsilon+2 kappa delta/alpha."
+  },
+  {
+    "number": "A.1",
+    "kind": "lemma",
+    "paper_labels": [
+      "lem:real-compiler"
+    ],
+    "source_lines": [
+      2824,
+      2833
+    ],
+    "inputs": "Canonical S; dyadic budgets1≤Ki≤K",
+    "outputs": "Actual real compiler overheadO(K+K₁+K₂), clean ancillas andO(logK) qubits",
+    "references": [
+      "OptimalQLS/PaperStatements/AppendixA1.lean:appendixA1_strict",
+      "OptimalQLS/PaperStatements/AppendixA1.lean:appendixA1",
+      "OptimalQLS/TransducerCompiler/EncodedSpace.lean:cacheFlag",
+      "OptimalQLS/TransducerCompiler/Physical/QueryLocality.lean:queryPlacement"
+    ],
+    "review_note": "Includes the zero-width clock K=1. Synthesis scratch returns exactly to zero; the live clock is covered by the approximation bound. Controlled work is the supplied primitive."
+  },
+  {
+    "number": "A.2",
+    "kind": "proposition",
+    "paper_labels": [
+      "prop:finite-preparation",
+      "eq:finite-budgets",
+      "eq:finite-preparation-error"
+    ],
+    "source_lines": [
+      2854,
+      2873
+    ],
+    "inputs": "Preparation S and relaxed estimate; explicit dyadic budgets",
+    "outputs": "Witness-independent error<10⁻³, separate O(κ),O(κ/s) calls, real gates, clean ancillas",
+    "references": [
+      "OptimalQLS/PaperStatements/AppendixA2.lean:appendixA2",
+      "OptimalQLS/PaperStatements/AppendixA2.lean:appendixA2_physical",
+      "OptimalQLS/PaperStatements/AppendixA2.lean:appendixA2_original_error",
+      "OptimalQLS/PaperStatements/AppendixA2.lean:appendixA2_controlled_work",
+      "OptimalQLS/PhysicalPadding/Graph.lean:physical_graphInput_promises",
+      "OptimalQLS/Preparation/Finite.lean:finite_preparation_error_uniform",
+      "OptimalQLS/Preparation/CompilerAttachment/Complete.lean:physical_preparation_complete"
+    ],
+    "review_note": "The literal dyadic budgets, real gates, same-state error below 1/1000, original query counts and exact synthesis-scratch cleanup are exported."
+  }
+]

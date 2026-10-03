@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the paper associated with this formalization."
+type: software
+title: "Lean formalization of Simultaneously Query-Optimal Quantum Linear-System Algorithm"
+authors:
+  - name: OptimalQLS contributors
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "Simultaneously Query-Optimal Quantum Linear-System Algorithm"
+  authors:
+    - family-names: Gao
+      given-names: Minbo
+    - family-names: Ji
+      given-names: Zhengfeng
+    - family-names: Liu
+      given-names: Chenghua
+  year: 2026
+  month: 9
+  url: "https://arxiv.org/abs/2609.33686v1"
+  doi: "10.48550/arXiv.2609.33686"

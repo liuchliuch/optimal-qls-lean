@@ -1,0 +1,14 @@
+{
+  "arxiv_id": "2609.33686v1",
+  "title": "Simultaneously Query-Optimal Quantum Linear-System Algorithm",
+  "authors": [
+    "Minbo Gao",
+    "Zhengfeng Ji",
+    "Chenghua Liu"
+  ],
+  "source_url": "https://arxiv.org/src/2609.33686v1",
+  "source_sha256": "d759b26367d87a0813b10d9c681a71cf3bad26d1325588157f9870d533614f5c",
+  "manuscript_sha256": "e8d6f4edbc995dd25e41e24552eae0c680f47e4339e242b54c0fe902b0eb895c",
+  "numbered_items": 36,
+  "substantive_proof_statements": 29
+}

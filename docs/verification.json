@@ -1,0 +1,126 @@
+{
+  "recorded_at_utc": "2026-10-02T05:05:16.269472+00:00",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "source": {
+    "sha256": "f42a7ca306919fc901197bb6d8a31311cbba61ec350c6eb9aa35b6ac428254ce",
+    "file_count": 658,
+    "method": "SHA-256 of UTF-8 path + NUL + file SHA-256 + newline records sorted lexicographically by complete relative POSIX path; release files except this record; generated directories excluded"
+  },
+  "paper": {
+    "arxiv_id": "2609.33686v1",
+    "title": "Simultaneously Query-Optimal Quantum Linear-System Algorithm",
+    "authors": [
+      "Minbo Gao",
+      "Zhengfeng Ji",
+      "Chenghua Liu"
+    ],
+    "source_url": "https://arxiv.org/src/2609.33686v1",
+    "source_sha256": "d759b26367d87a0813b10d9c681a71cf3bad26d1325588157f9870d533614f5c",
+    "manuscript_sha256": "e8d6f4edbc995dd25e41e24552eae0c680f47e4339e242b54c0fe902b0eb895c",
+    "numbered_items": 36,
+    "substantive_proof_statements": 29
+  },
+  "toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "dependencies": {
+    "plausible": "e84e3e16aea6b72cc5d311ca1bb25caad417e162",
+    "LeanSearchClient": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+    "importGraph": "f207d9fcf0cef00ba79962a33ef156061914d9c7",
+    "proofwidgets": "2e58165a9dcdca9837b666528f974299ee1a51cc",
+    "aesop": "c3361708f266893de5d1769192b60d4b1831f2bb",
+    "Qq": "221e8088e3a066b8676dc471ff10638cf1c10835",
+    "batteries": "77a5160a74772214ef37caba2847cfe9ab600285",
+    "Cli": "3de531c1135f5e3a01f3ac04830996fda476b28e",
+    "mathlib": "f156f7abd91ac67adb22bf999e5a71ba22e22e41"
+  },
+  "dependency_source_check": {
+    "status": "passed",
+    "all_pinned_revisions_match": true,
+    "all_worktrees_clean": true,
+    "cache_source": "Local compiled caches of the same pinned dependencies"
+  },
+  "build": {
+    "status": "passed",
+    "command": "./scripts/verify.sh",
+    "project_and_vendor_proof_modules": 631,
+    "lake_jobs": 4026,
+    "all_project_proof_modules_compiled_from_source_during_review": true
+  },
+  "axiom_audit": {
+    "status": "passed",
+    "declarations": 13941,
+    "imported_project_modules": 633,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "module_coverage": "Exact equality with the solution import closure"
+  },
+  "comparator": {
+    "status": "passed",
+    "mode": "development",
+    "process_sandbox": false,
+    "nanoda": false,
+    "lean_kernel_replay": "passed",
+    "revision": "e6831abb2f76b7ce6f2fb28e6410a0df878e6e4b",
+    "lean4export_revision": "048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d",
+    "lean4checker_revision": "b7398199245524275543dec6113229c9bb4902e5",
+    "obligations": [
+      "Verification.Certificate.upper",
+      "Verification.Certificate.upper_relaxed",
+      "Verification.Certificate.lower",
+      "Verification.Certificate.robust"
+    ],
+    "controls": [
+      {
+        "case": "valid",
+        "exit_code": 0,
+        "expected_accept": true
+      },
+      {
+        "case": "statement-mismatch",
+        "exit_code": 1,
+        "expected_accept": false
+      },
+      {
+        "case": "extra-axiom",
+        "exit_code": 1,
+        "expected_accept": false
+      }
+    ]
+  },
+  "correspondence_review": {
+    "numbered_items": 36,
+    "substantive_proof_statements": 29,
+    "review": "Original TeX statements, Lean endpoints, and input/output/model definitions",
+    "result": "No mismatch found in reviewed endpoints; see scope.md for proof choices and boundaries",
+    "formal_equivalence_to_english_claimed": false
+  },
+  "not_exercised": [
+    "Linux process sandbox",
+    "Remote GitHub Actions run",
+    "Independent external kernel (Nanoda)"
+  ],
+  "kernel_verified_source": {
+    "sha256": "23cd2b62b93e2d62e9ab174f8fe3bb5ce781395ce94841b16f921bb6b27ed9d3",
+    "file_count": 658,
+    "method": "SHA-256 of path + NUL + file SHA-256 + newline records ordered lexicographically by path components (Python pathlib ordering); release files except the verification record; generated directories excluded"
+  },
+  "release_recheck": {
+    "date": "2026-10-04",
+    "source_checks": "passed",
+    "proof_build_and_comparator_inputs_unchanged": true,
+    "unchanged_input_files": 642,
+    "unchanged_inputs_sha256": "4565160ea279de6affaad12e85b1803b417cc7a7f0b91ab715b9092e0f79c8f5",
+    "changes": [
+      "Standardized source fingerprint ordering by full relative path",
+      "Ignored generated ZIP distributions",
+      "Updated verification documentation and release fingerprint"
+    ],
+    "kernel_and_comparator_rerun": false,
+    "kernel_and_comparator_evidence_date": "2026-10-02"
+  }
+}

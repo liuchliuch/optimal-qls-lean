@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Verification.Challenge",
+  "solution_module": "Verification.Solution",
+  "theorem_names": [
+    "Verification.Certificate.upper",
+    "Verification.Certificate.upper_relaxed",
+    "Verification.Certificate.lower",
+    "Verification.Certificate.robust"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": false
+}

@@ -1,0 +1,19 @@
+{
+  "source": "immutable audit-baseline/generalized-channel-stein-lean/vendor/first-paper",
+  "purpose": "actual trace-norm and finite quantum-state analysis for QLS lower-bound hybrid",
+  "compiler": "Lean4.29.0-rc6",
+  "source_files": {
+    "QuantumChannelStein/Factorization.lean": "115e8d49d80e986ffc46974cf3cd09f31cab499097cd1664c78a5079a1be43c1",
+    "QuantumChannelStein/Kraus.lean": "533c3627e3f090e7f53244c0ebe5dac3935b655404460ecab4b6f1a5e2746cf4",
+    "QuantumChannelStein/ReferenceAcceptance.lean": "dbd0f9951d9891c6570453d92dac67ee4f11b2538fee8811a11e2dcf8ccf6506",
+    "QuantumChannelStein/RelativeEntropy.lean": "5db62e3cca75c55365d29631db09f5023b7bdac8828ed0c126d2017c670d8fb6",
+    "QuantumChannelStein/SpectralDecompositionCFC.lean": "52d51bd238f9c215c7d4e15463a0d24bea9dbebb030a65e1f4a23fcf0fead0a1",
+    "QuantumChannelStein/Stinespring.lean": "9ec603fcac7606c70cbceaf9b9a531a53a45f4ce9b3c2ce451c32035a036a170",
+    "QuantumChannelStein/SupportDomination.lean": "060f14fc1dad1ae4b29fbff1f3183ce5eb5624583c4f0adfffc7ab77187faf75",
+    "QuantumChannelStein/TensorNorm.lean": "326b3be9f2028d8116ba16225f92e907de747df1e4092fc6de9aa118eeb99e6e",
+    "QuantumChannelStein/Testing.lean": "bff812f1f2a0d29438f9982c4c1e6b444d5a5d47080ddc18bec308463b1d93bf",
+    "QuantumChannelStein/TraceNorm.lean": "b274e9e5f209ba771e8c8c54c9587ad301267331ae9e093a6f7378f817514907",
+    "QuantumChannelStein/TraceNormBounds.lean": "29ce5e33bd716c119564867e1de62af432ca203ff3a657e805b5d2e5a5f8442b"
+  },
+  "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+}
